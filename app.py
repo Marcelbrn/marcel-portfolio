@@ -57,7 +57,6 @@ def load_css():
     """, unsafe_allow_html=True)
 
     
-
 def app():
     # Chama a função css
     load_css()
@@ -65,12 +64,12 @@ def app():
     # Configurações sidebar
     with st.sidebar:
 
-        # Configurando parte do nome e ferramentas
+        # Configurando parte do nome e ferramentas   |||Engenheiro de Dados | Data Engineer
         st.markdown("""
                     <div style="text-align: center;">
-                        <img src="https://github.com/Marcelbrn/marcel-portfolio/blob/main/img/img_marcel.png" style="border-radius: 50%; width: 160px; height: 160px; object-fit: cover; margin-bottom: 1rem;">
+                        <img src="https://github.com/Marcelbrn/marcel-portfolio/raw/6721ec536e4cdd14fa4748889c45cfd9ef3a00c0/img/img_marcel.png" style="border-radius: 50%; width: 240px; height: 240px; object-fit: cover; margin-bottom: 1rem;">
                         <h2> Marcel Bruno </h2>
-                        <p style="color: var(--accent-colo);"> Engenheiro de Dados | Data Engineer </p>
+                        <p style="color: var(--accent-colo);"> Engenheiro de Dados </p>
                     </div>
 
                     """, unsafe_allow_html=True)
