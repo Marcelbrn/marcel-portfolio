@@ -68,7 +68,7 @@ def app():
         # Configurando parte do nome e ferramentas
         st.markdown("""
                     <div style="text-align: center;">
-                        <img src="C:\ProjetosStreamlit\Portfolio\img\img_marcel.png" style="border-radius: 50%; width: 160px; height: 160px; object-fit: cover; margin-bottom: 1rem;">
+                        <img src="https://github.com/Marcelbrn/marcel-portfolio/blob/main/img/img_marcel.png" style="border-radius: 50%; width: 160px; height: 160px; object-fit: cover; margin-bottom: 1rem;">
                         <h2> Marcel Bruno </h2>
                         <p style="color: var(--accent-colo);"> Engenheiro de Dados | Data Engineer </p>
                     </div>

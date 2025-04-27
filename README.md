@@ -12,7 +12,7 @@ Este repositório serve como meu portfólio profissional, destacando projetos se
 ### Projeto 1: Portfólio
 - **Descrição**: Desenvolvimento de página web para portfólio
 - **Tecnologias**: Python, Streamlit, CSS
-- **[Link para o Repositório](URL do repositório do projeto)**
+- **Link Projeto**: Em breve
 
 ## 📫 Contato
 - **LinkedIn**: https://www.linkedin.com/in/marcel-bruno/
