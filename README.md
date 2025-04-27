@@ -10,7 +10,7 @@ Este repositório serve como meu portfólio profissional, destacando projetos se
 ## 🏗️ Projetos
 
 ### Projeto 1: Portfólio
-- **Descrição**: Desenvolvimento de página web para portfólio
+- **Descrição**: Desenvolvimento de página web para apresentação de portfólio profissional, destacando projetos, habilidades e experiências
 - **Tecnologias**: Python, Streamlit, CSS
 - **Link Projeto**: Em breve
 
