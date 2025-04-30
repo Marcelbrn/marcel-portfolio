@@ -72,7 +72,7 @@ dic_links_redes_sociais = {
 
 
 # Cria função para links da rede sociais
-def link_redes_sociais():
+def links_redes_sociais():
     link_html = "".join(
         f'<a href={info["url"]} target="_blank" style="margin: 0 10px; font-size: 1.5rem; color: var(--primaty-color);">'
         f'<i class="{info["icon"]}"></i></a>'
@@ -86,7 +86,7 @@ def app():
     # Chama a função css
     load_css()
 
-    # Configurações sidebar
+    ####### Configurações sidebar #######
     with st.sidebar:
 
         # Configurando parte do nome, título e imagem de perfil
@@ -102,7 +102,7 @@ def app():
         # Configurando a parte de contatos
         with st.expander("📫 Contato", expanded=True):
             st.markdown("""
-            
+        
                         <p><i class="fas fa-map-marker-alt"></i> Barueri - SP</i></p>
                         <p><i class="fas fa-phone"></i> +55 21 999999999 </p>
                         <p><i class="fas fa-envelope"></i> marcelbrn@gmail.com </p>
@@ -111,8 +111,41 @@ def app():
 
 
         # Chamando a função de links das redes sociais
-        link_redes_sociais()
+        links_redes_sociais()
+    ####### Configurações sidebar #######
 
+
+    ####### Configurações do conteúdo principal #######
+
+    # Adicionando nome na página principal
+    #st.title("Marcel Bruno")
+    #st.title("Seja bem-vindo(a) ao meu portfólio!")
+    st.title("Add imagem de certificação???")
+
+    # Adiciona título pessoal
+    #st.markdown("### SAS | SQL | Python | PySpark | Databricks | AWS | Azure | GCP")
+
+    # Adicionando Sobre
+    with st.container():
+        col1, col2 = st.columns([3, 1])
+
+        # Configurando o texto 'sobre mim' e imagem
+        with col1:
+            st.markdown("""## 👋🏻 Olá, sou Marcel Bruno""", unsafe_allow_html=True)
+
+            st.markdown("""Profissional de Engenharia de Dados, com aproximadamente 8 anos de experiência no desenvolvimento de pipelines de dados, especializado em programação SAS. Atualmente, estou ampliando meus conhecimentos em engenharia de dados, explorando novas linguagens, ferramentas e tecnologias em nuvem para fortalecer ainda mais minha atuação no universo de dados. Além da carreira, sou pai, gosto de estudar sobre plantas medicinais e cultivo uma vida espiritualizada, buscando equilíbrio e aprendizado contínuo em todas as áreas da vida.""", unsafe_allow_html=True)
+
+        with col2:
+            st.image("https://github.com/Marcelbrn/marcel-portfolio/raw/6318010389277bad826acee2d15f26774bd0ce21/img/img_dados.png", width=200)
+
+        # Configurando habilidades
+        st.markdown("## 🛠️ Habilidades Técnicas")
+
+
+
+
+
+    ####### Configurações do conteúdo principal #######
 
 if __name__ == "__main__":
     app()  
