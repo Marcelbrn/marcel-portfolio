@@ -14,7 +14,7 @@ st.set_page_config(
 
 
 # Cria função para definir estilo css da página
-def load_css():
+def f_load_css():
     st.markdown("""
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <style>
@@ -64,19 +64,27 @@ def load_css():
 #"Youtube": {"url": "https://youtube.com/Marcelbrn/", "icon": "fab fa-youtube"},
 #"Twitter": {"url": "https://twiter.com/Marcelbrn/", "icon": "fab fa-twitter"}
 
-# Cria um dicionário contendo os links para as redes sociais
-dic_links_redes_sociais = {
+# Criando os links para as redes sociais
+links_redes_sociais = {
     "LinkedIn": {"url": "https://www.linkedin.com/in/marcel-bruno/", "icon": "fab fa-linkedin"},
     "GitHub": {"url": "https://github.com/Marcelbrn/", "icon": "fab fa-github"}
 }
 
+# Criando informações para o quadro de habilidades
+habilidades_tecnicas = {
+    "Linguagens & Desenvolvimento": ["SAS", "SQL", "Python, PySpark, Shell Script", "DBT"],
+    "BD & Armazenamento": ["SQL Server, Oracle, Teradata", "MongoDB, Cassandra", "Data Warehouse", "Data Lake"],
+    "Ferramentas & Orquestração": ["Airflow", "Docker, Kubernetes","Terraform, CI/CD", "Streamlit, Power BI"],
+    "Cloud & Processamento": ["AWS, Azure, GCP", "Databricks", "Snowflake", "BigQuery"]
+}
+
 
 # Cria função para links da rede sociais
-def links_redes_sociais():
+def f_links_redes_sociais():
     link_html = "".join(
         f'<a href={info["url"]} target="_blank" style="margin: 0 10px; font-size: 1.5rem; color: var(--primaty-color);">'
         f'<i class="{info["icon"]}"></i></a>'
-        for name, info in dic_links_redes_sociais.items()
+        for name, info in links_redes_sociais.items()
     )
     st.markdown(f'<div style="text-align: center; margin: 2rem 0;">{link_html}</div>', unsafe_allow_html=True)
 
@@ -84,9 +92,9 @@ def links_redes_sociais():
     
 def app():
     # Chama a função css
-    load_css()
+    f_load_css()
 
-    ####### Configurações sidebar #######
+    ####### INI - Configurações sidebar #######
     with st.sidebar:
 
         # Configurando parte do nome, título e imagem de perfil
@@ -111,11 +119,12 @@ def app():
 
 
         # Chamando a função de links das redes sociais
-        links_redes_sociais()
-    ####### Configurações sidebar #######
+        f_links_redes_sociais()
+
+    ####### FIM - Configurações sidebar #######
 
 
-    ####### Configurações do conteúdo principal #######
+    ####### INI - Configurações do conteúdo principal #######
 
     # Adicionando nome na página principal
     #st.title("Marcel Bruno")
@@ -127,25 +136,37 @@ def app():
 
     # Adicionando Sobre
     with st.container():
-        col1, col2 = st.columns([3, 1])
+        col1, col2 = st.columns([3,1])
 
         # Configurando o texto 'sobre mim' e imagem
         with col1:
             st.markdown("""## 👋🏻 Olá, sou Marcel Bruno""", unsafe_allow_html=True)
-
             st.markdown("""Profissional de Engenharia de Dados, com aproximadamente 8 anos de experiência no desenvolvimento de pipelines de dados, especializado em programação SAS. Atualmente, estou ampliando meus conhecimentos em engenharia de dados, explorando novas linguagens, ferramentas e tecnologias em nuvem para fortalecer ainda mais minha atuação no universo de dados. Além da carreira, sou pai, gosto de estudar sobre plantas medicinais e cultivo uma vida espiritualizada, buscando equilíbrio e aprendizado contínuo em todas as áreas da vida.""", unsafe_allow_html=True)
 
+        # Adicionando imagem ao lado do texto 'sobre mim'
         with col2:
             st.image("https://github.com/Marcelbrn/marcel-portfolio/raw/6318010389277bad826acee2d15f26774bd0ce21/img/img_dados.png", width=200)
 
         # Configurando habilidades
         st.markdown("## 🛠️ Habilidades Técnicas")
+        cols = st.columns(4)
+        for idx, (title, items) in enumerate(habilidades_tecnicas.items()):
+            with cols[idx]:
+                lista_habilidades = "".join(f"<li>{item}</li>" for item in items)
+
+                st.markdown(f"""
+                                <div style="padding: 1.5rem; background: white; border-radius: 10px; box-shadow: var(--shadow);">
+                                    <h5>{title}</h5>
+                                    <ul>{lista_habilidades}</ul>
+                                </div>
+                            """, unsafe_allow_html=True)
 
 
 
 
 
-    ####### Configurações do conteúdo principal #######
+
+    ####### FIM - Configurações do conteúdo principal #######
 
 if __name__ == "__main__":
     app()  
