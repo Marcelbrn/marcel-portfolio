@@ -64,13 +64,13 @@ def f_load_css():
 #"Youtube": {"url": "https://youtube.com/Marcelbrn/", "icon": "fab fa-youtube"},
 #"Twitter": {"url": "https://twiter.com/Marcelbrn/", "icon": "fab fa-twitter"}
 
-# Criando os links para as redes sociais
+# Gerando informações dos links para as redes sociais
 links_redes_sociais = {
     "LinkedIn": {"url": "https://www.linkedin.com/in/marcel-bruno/", "icon": "fab fa-linkedin"},
     "GitHub": {"url": "https://github.com/Marcelbrn/", "icon": "fab fa-github"}
 }
 
-# Criando informações para o quadro de habilidades
+# Gerando informações para o quadro de Habilidades
 habilidades_tecnicas = {
     "Linguagens & Desenvolvimento": ["SAS", "SQL", "Python, PySpark, Shell Script", "DBT"],
     "BD & Armazenamento": ["SQL Server, Oracle, Teradata", "MongoDB, Cassandra", "Data Warehouse", "Data Lake"],
@@ -78,6 +78,20 @@ habilidades_tecnicas = {
     "Cloud & Processamento": ["AWS, Azure, GCP", "Databricks", "Snowflake", "BigQuery"]
 }
 
+# Gerando informações para o quadro de Projetos
+projetos = [
+    {
+        "titulo": "Portfólio",
+        "url": "https://github.com/Marcelbrn/marcel-portfolio/tree/main",
+        "descricao": "Implementação de página web para apresentação de portfólio profissional, destacando projetos, habilidades e experiências."
+    },
+#   {
+#        "titulo": "Portfólio2",
+#        "url": "https://github.com/Marcelbrn/marcel-portfolio/tree/main",
+#        "descricao": "O projeto é uma coleção organizada de trabalhos, projetos ou amostras que demostram as habilidades, experiências e realizações."
+ #   },
+    
+]
 
 # Cria função para links da rede sociais
 def f_links_redes_sociais():
@@ -88,7 +102,20 @@ def f_links_redes_sociais():
     )
     st.markdown(f'<div style="text-align: center; margin: 2rem 0;">{link_html}</div>', unsafe_allow_html=True)
 
+# Cria função para os projetos
+def f_projetos():
 
+        st.markdown("## 👨🏻‍💻 Projetos")
+        cols = st.columns(4)
+        for idx, projeto in enumerate(projetos):
+            with cols[idx % 4]:
+
+                st.markdown(f"""
+                                <div class="project-card">
+                                    <h4><a href="{projeto['url']}" target="_blank">{projeto['titulo']}</a></h4>
+                                    <p>{projeto['descricao']}</p>
+                                </div>
+                            """, unsafe_allow_html=True)
     
 def app():
     # Chama a função css
@@ -158,11 +185,12 @@ def app():
                                 <div style="padding: 1.5rem; background: white; border-radius: 10px; box-shadow: var(--shadow);">
                                     <h5>{title}</h5>
                                     <ul>{lista_habilidades}</ul>
-                                </div>
+                                </div><br>
                             """, unsafe_allow_html=True)
 
 
-
+        # Chamando a função de projetos
+        f_projetos()
 
 
 
