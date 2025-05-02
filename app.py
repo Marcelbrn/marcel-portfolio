@@ -96,10 +96,15 @@ projetos = [
 certificacoes = [
     {
         "img": "https://github.com/Marcelbrn/marcel-portfolio/raw/8d7506d39ae93358dd1ed90503e2bdb0cae09f3b/img/img_certificacao_sas.png",
+        "tipo": "Microsoft Certified Professional:",
+        "certificacao": "AZ-900",
+        "url": ""
+    },
+    {
+        "img": "https://github.com/Marcelbrn/marcel-portfolio/raw/8d7506d39ae93358dd1ed90503e2bdb0cae09f3b/img/img_certificacao_sas.png",
         "tipo": "SAS Certified Professional:",
         "certificacao": "Advanced Programming Using SAS 9.4",
         "url": "https://www.credly.com/badges/603b630f-203c-43a8-a568-6384de851889/linked_in"
-        
     },
     {
         "img": "https://github.com/Marcelbrn/marcel-portfolio/raw/8d7506d39ae93358dd1ed90503e2bdb0cae09f3b/img/img_certificacao_sas.png",
@@ -221,8 +226,6 @@ def app():
 
         # Chamando a função de certificações
         f_certificacoes()
-
-
 
     ####### FIM - Configurações do conteúdo principal #######
 
