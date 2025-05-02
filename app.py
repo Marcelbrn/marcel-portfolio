@@ -95,15 +95,22 @@ projetos = [
 
 certificacoes = [
     {
-        "Certificacao": "SAS Certified Professional: Advanced Programming Using SAS 9.4",
-        "url": "https://www.credly.com/badges/3e324c11-c28b-46aa-be33-0e780f9a4fcd/linked_in_profile"
+        "img": "https://github.com/Marcelbrn/marcel-portfolio/raw/8d7506d39ae93358dd1ed90503e2bdb0cae09f3b/img/img_certificacao_sas.png",
+        "tipo": "SAS Certified Professional:",
+        "certificacao": "Advanced Programming Using SAS 9.4",
+        "url": "https://www.credly.com/badges/603b630f-203c-43a8-a568-6384de851889/linked_in"
+        
     },
     {
-        "Certificacao": "SAS Certified Specialist: Base Programming Using SAS 9.4",
+        "img": "https://github.com/Marcelbrn/marcel-portfolio/raw/8d7506d39ae93358dd1ed90503e2bdb0cae09f3b/img/img_certificacao_sas.png",
+        "tipo": "SAS Certified Specialist:",
+        "certificacao": "Base Programming Using SAS 9.4",
         "url": "https://www.credly.com/badges/603b630f-203c-43a8-a568-6384de851889/linked_in"
     },
     {
-        "Certificacao": "SAS Certified: Base Programmer for SAS 9",
+        "img": "https://github.com/Marcelbrn/marcel-portfolio/raw/8d7506d39ae93358dd1ed90503e2bdb0cae09f3b/img/img_certificacao_sas.png",
+        "tipo": "SAS Certified:",
+        "certificacao": "SAS Certified: Base Programmer for SAS 9",
         "url": "https://www.youracclaim.com/badges/b2d53d81-f4d4-4f24-af0a-322c2b673020/linked_in_profile"
     }
 ]
@@ -119,18 +126,34 @@ def f_links_redes_sociais():
 
 # Cria função para os projetos
 def f_projetos():
+    st.markdown("## 👨🏻‍💻 Projetos")
+    cols = st.columns(4)
+    for idx, projeto in enumerate(projetos):
+        with cols[idx % 4]:
 
-        st.markdown("## 👨🏻‍💻 Projetos")
-        cols = st.columns(4)
-        for idx, projeto in enumerate(projetos):
-            with cols[idx % 4]:
+            st.markdown(f"""
+                            <div class="project-card">
+                                <h4><a href="{projeto['url']}" target="_blank">{projeto['titulo']}</a></h4>
+                                <p>{projeto['descricao']}</p>
+                            </div>
+                        """, unsafe_allow_html=True)
 
-                st.markdown(f"""
-                                <div class="project-card">
-                                    <h4><a href="{projeto['url']}" target="_blank">{projeto['titulo']}</a></h4>
-                                    <p>{projeto['descricao']}</p>
-                                </div>
-                            """, unsafe_allow_html=True)
+# Cria função para as certificações
+def f_certificacoes():
+    st.markdown("## 🏅 Certificações")
+    cols = st.columns(4)
+    for idx, cert in enumerate(certificacoes):
+        with cols[idx % 4]:
+
+            st.markdown(f"""
+                            <div style="text-align: center; margin: 20px 0;">
+                                <a href="{cert['url']}" target="_blank">
+                                    <img src="{cert['img']}" width="120">
+                                </a>
+                                <h5>{cert['tipo']}</h5>
+                                <p style="margin-top: -10px;">{cert['certificacao']}</p>
+                            </div>
+                        """, unsafe_allow_html=True)     
     
 def app():
     # Chama a função css
@@ -141,22 +164,19 @@ def app():
 
         # Configurando parte do nome, título e imagem de perfil
         st.markdown("""
-                    <div style="text-align: center;">
-                        <img src="https://github.com/Marcelbrn/marcel-portfolio/raw/6721ec536e4cdd14fa4748889c45cfd9ef3a00c0/img/img_marcel.png" style="border-radius: 50%; width: 240px; height: 240px; object-fit: cover; margin-bottom: 1rem;">
-                        <h1> Marcel Bruno </h1>
-                        <p style="color: var(--accent-colo);"> Engenheiro de Dados </p>
-                    </div>
-
+                        <div style="text-align: center;">
+                            <img src="https://github.com/Marcelbrn/marcel-portfolio/raw/6721ec536e4cdd14fa4748889c45cfd9ef3a00c0/img/img_marcel.png" style="border-radius: 50%; width: 240px; height: 240px; object-fit: cover; margin-bottom: 1rem;">
+                            <h1> Marcel Bruno </h1>
+                            <p style="color: var(--accent-colo);"> Engenheiro de Dados </p>
+                        </div>
                     """, unsafe_allow_html=True)
 
         # Configurando a parte de contatos
         with st.expander("📫 Contato", expanded=True):
             st.markdown("""
-        
-                        <p><i class="fas fa-map-marker-alt"></i> Barueri - SP</i></p>
-                        <p><i class="fas fa-phone"></i> +55 21 999999999 </p>
-                        <p><i class="fas fa-envelope"></i> marcelbrn@gmail.com </p>
-            
+                            <p><i class="fas fa-map-marker-alt"></i> Barueri - SP</i></p>
+                            <p><i class="fas fa-phone"></i> +55 21 999999999 </p>
+                            <p><i class="fas fa-envelope"></i> marcelbrn@gmail.com </p>
                         """, unsafe_allow_html=True)
 
 
@@ -167,14 +187,6 @@ def app():
 
 
     ####### INI - Configurações do conteúdo principal #######
-
-    # Adicionando nome na página principal
-    #st.title("Marcel Bruno")
-    #st.title("Seja bem-vindo(a) ao meu portfólio!")
-    st.title("Add imagem de certificação???")
-
-    # Adiciona título pessoal
-    #st.markdown("### SAS | SQL | Python | PySpark | Databricks | AWS | Azure | GCP")
 
     # Adicionando Sobre
     with st.container():
@@ -207,19 +219,8 @@ def app():
         # Chamando a função de projetos
         f_projetos()
 
-        #
-        #st.markdown("""
-        #                <div style='text-align: center; margin: 20px 0;'>
-        #                    <img src='https://raw.githubusercontent.com/Marcelbrn/marcel-portfolio/main/img/cert_sas.png' alt='SAS Certified' width='120'>
-        #                    <h5>SAS Certified Professional:</h5>
-        #                    <p style='margin-top: -10px;'>Advanced Programming Using SAS 9.4</p>
-        #                </div>
-        #            """, unsafe_allow_html=True)
-
-        st.markdown("## 🛠️ Certificações")
-        img = Image.open("img_certificacao_sas.png")
-        st.image(img, width=120)
-        st.markdown("### SAS Certified<br>Professional:<br>SAS", unsafe_allow_html=True)
+        # Chamando a função de certificações
+        f_certificacoes()
 
 
 
