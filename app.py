@@ -93,6 +93,21 @@ projetos = [
     
 ]
 
+certificacoes = [
+    {
+        "Certificacao": "SAS Certified Professional: Advanced Programming Using SAS 9.4",
+        "url": "https://www.credly.com/badges/3e324c11-c28b-46aa-be33-0e780f9a4fcd/linked_in_profile"
+    },
+    {
+        "Certificacao": "SAS Certified Specialist: Base Programming Using SAS 9.4",
+        "url": "https://www.credly.com/badges/603b630f-203c-43a8-a568-6384de851889/linked_in"
+    },
+    {
+        "Certificacao": "SAS Certified: Base Programmer for SAS 9",
+        "url": "https://www.youracclaim.com/badges/b2d53d81-f4d4-4f24-af0a-322c2b673020/linked_in_profile"
+    }
+]
+
 # Cria função para links da rede sociais
 def f_links_redes_sociais():
     link_html = "".join(
@@ -191,6 +206,20 @@ def app():
 
         # Chamando a função de projetos
         f_projetos()
+
+        #
+        #st.markdown("""
+        #                <div style='text-align: center; margin: 20px 0;'>
+        #                    <img src='https://raw.githubusercontent.com/Marcelbrn/marcel-portfolio/main/img/cert_sas.png' alt='SAS Certified' width='120'>
+        #                    <h5>SAS Certified Professional:</h5>
+        #                    <p style='margin-top: -10px;'>Advanced Programming Using SAS 9.4</p>
+        #                </div>
+        #            """, unsafe_allow_html=True)
+
+        st.markdown("## 🛠️ Certificações")
+        img = Image.open("img_certificacao_sas.png")
+        st.image(img, width=120)
+        st.markdown("### SAS Certified<br>Professional:<br>SAS", unsafe_allow_html=True)
 
 
 
